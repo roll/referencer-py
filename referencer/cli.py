@@ -1,6 +1,5 @@
 import click
 from .document import generate_document
-from .reference import generate_reference
 from . import config
 
 
