@@ -5,7 +5,7 @@ from . import config
 
 # Module API
 
-@click.command(help= '')
+@click.command(help='')
 @click.argument('package')
 @click.argument('document')
 @click.option('--in-place', is_flag=True, show_default=True)
@@ -20,7 +20,7 @@ def cli(package, document, **options):
 
     Options:
       --in-place               [default: False]
-      --package-pattern TEXT   [default: from \.(\w+) import (\w+)]
+      --package-pattern TEXT   [default: from \\.(\\w+) import (\\w+)]
       --document-section TEXT  [default: ## Reference]
       --version                Show the version and exit.
       --help                   Show this message and exit.

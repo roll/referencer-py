@@ -31,8 +31,8 @@ def generate_reference(package,
                     line = re.sub(r'^%s\.' % object, r'%s.' % object.lower(), line)
                 line = re.sub(r'^(###?) ([\w.]+)', r'#\1 `\2`', line)
                 content += "%s\n" % line
-        headings = ''
-        for heading in re.findall(r'### `(.*)`', content):
-            headings += "- [`%s`](#%s)\n" % (heading, heading)
-        content = "%s\n---\n\n%s" % (headings, content)
+        #  headings = ''
+        #  for heading in re.findall(r'### `(.*)`', content):
+            #  headings += "- [`%s`](#%s)\n" % (heading, heading)
+        #  content = "%s\n---\n\n%s" % (headings, content)
     return content
