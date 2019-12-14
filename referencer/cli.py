@@ -15,6 +15,7 @@ from . import config
 def cli(package, document, **options):
     """ Command-line interface
 
+    ```
     Usage: referencer [OPTIONS] PACKAGE DOCUMENT
 
       Command-line interface
@@ -25,6 +26,7 @@ def cli(package, document, **options):
       --document-section TEXT
       --version                Show the version and exit.
       --help                   Show this message and exit.
+    ```
 
     """
     in_place = options.pop('in_place')

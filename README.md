@@ -33,6 +33,7 @@ cli(package, document, **options)
 ```
 Command-line interface
 
+```
 Usage: referencer [OPTIONS] PACKAGE DOCUMENT
 
   Command-line interface
@@ -43,6 +44,7 @@ Options:
   --document-section TEXT
   --version                Show the version and exit.
   --help                   Show this message and exit.
+```
 
 
 ### `generate_document`
