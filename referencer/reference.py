@@ -19,6 +19,7 @@ def generate_reference(package,
             module, object = match.groups()
             is_class = object[0].isupper()
             docs = subprocess.getoutput('pydocmd simple %s.%s++' % (package, module))
+            docs = re.sub(r'\n\n-', r'\n-', docs)
             for line in docs.split("\n"):
                 if line.startswith('## '):
                     capture = False
@@ -31,8 +32,4 @@ def generate_reference(package,
                     line = re.sub(r'^%s\.' % object, r'%s.' % object.lower(), line)
                 line = re.sub(r'^(###?) ([\w.]+)', r'#\1 `\2`', line)
                 content += "%s\n" % line
-        #  headings = ''
-        #  for heading in re.findall(r'### `(.*)`', content):
-            #  headings += "- [`%s`](#%s)\n" % (heading, heading)
-        #  content = "%s\n---\n\n%s" % (headings, content)
     return content
