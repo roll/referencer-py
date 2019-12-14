@@ -5,7 +5,7 @@
 [![PyPi](https://img.shields.io/pypi/v/referencer.svg)](https://pypi.python.org/pypi/referencer)
 [![Github](https://img.shields.io/badge/github-master-brightgreen)](https://github.com/roll/referencer-py)
 
-Generate a markdown reference from your public API docstrings and adds it to your readme.
+Generate a markdown reference from your public API docstrings and add it to your readme.
 
 ## Features
 
