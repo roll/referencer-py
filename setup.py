@@ -42,7 +42,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'referencer = referencer.__main__:main',
+            'referencer = referencer.__main__:cli',
         ]
     },
     zip_safe=False,
