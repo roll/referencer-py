@@ -1,0 +1,38 @@
+dist:
+  xenial
+
+sudo:
+  required
+
+language:
+  python
+
+python:
+  - 3.6
+  - 3.7
+  - 3.8
+
+install:
+  - make install
+  - pip install coveralls
+
+script:
+  - make test
+
+after_success:
+  - coveralls
+
+jobs:
+  include:
+    - stage: release
+      if: tag IS present
+      python: 3.8
+      deploy:
+        provider: pypi
+        user: roll
+        distributions: sdist bdist_wheel
+        skip_cleanup: true
+        on:
+          tags: true
+        password:
+          secure: NRpn6MBhl2eop63XvvFzE9j50HaBz2Xcy8xwuqeBVwf75C+QBWd+C2FqQ7Ar81NQ/Oc1tLHEjLDZeYZGYt4HbABiMOBxehqLf6iXyj9ka11G6JH7tx3H4AjauUYULy5/LE3mMYnBbyE7rWoy80lDO32eSj1cIRJi6zzZITLXn6uIQOQoykpb29+RKgLqdOeMncqylxFJKWSSaX41FIxC8FVuyviLVoLUgRzmnFgx45GkzMisJ33k5TeKcmLMatg0wE6dusAbIFiMnTgQpUGh4ZZs1j1IbvCZsTzxTql3Q36KVYATszqqAWp0mCOtfPXP4ajw+gOijY6bgwWxKSzGyiHtIsFO86LXIkQ8lg7kbR/zDuuBynf5oas7HuJ18n+TNnwXMcHGOMjNFSeU60zXdnr0bHJ351Q6et8u4y+U5oWsq3AhzX8jbf7XL3Hw3r003eJL4E09j7OCJAxpH0dkhMB5zMa6xzDG+qEJm3Q+MbaDPOB3jMYyrmewCnaPzhAQEBHx/LkLNVW7ILr/H/t0KaGMxtRz16tZ+k+XRQwnFhDmvtKLAB+E5yfaAl6C4KpqT4AyLBDDCwTmmwTPbZ/y26e+jMjj0WPMq00Fgek1DK7CyfyqwwOSVcU56fmURH9y+sKZcl5kDrjhC6O9ec0wg1EXQ0L8JpcY9+QtOKJfv7c=
