@@ -31,7 +31,7 @@ templates:
 
 test:
 	pylama $(PACKAGE)
-	pytest
+	py.test --cov $(PACKAGE) --cov-report term-missing
 
 version:
 	@echo $(VERSION)
