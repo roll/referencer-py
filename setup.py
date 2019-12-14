@@ -48,7 +48,7 @@ setup(
     zip_safe=False,
     long_description=README,
     long_description_content_type='text/markdown',
-    description='Generate a markfown reference from your public API docstrings and add it to your readme',
+    description='Generate a markfown reference from your public API docstrings and adds it to your readme',
     author='Evgeny Karev',
     author_email='eskarev@gmail.com',
     url='https://github.com/roll/referencer-py',
