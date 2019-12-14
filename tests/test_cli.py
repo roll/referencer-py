@@ -1,5 +1,5 @@
 from click.testing import CliRunner
-from referencer.__main__ import cli
+from referencer import cli
 
 
 # Tests
