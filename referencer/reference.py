@@ -29,6 +29,6 @@ def generate_reference(package,
                 if is_class:
                     line = re.sub(r'^### (.*)', r'### %s.\1' % object.lower(), line)
                     line = re.sub(r'^%s\.' % object, r'%s.' % object.lower(), line)
-                line = re.sub(r'^(###?) ([\w.]+)', r'\1 `\2`', line)
+                line = re.sub(r'^(###?) ([\w.]+)', r'#\1 `\2`', line)
                 content += "%s\n" % line
     return content
