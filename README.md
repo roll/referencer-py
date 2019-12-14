@@ -33,6 +33,18 @@ cli(package, document, **options)
 ```
 Command-line interface
 
+Usage: referencer [OPTIONS] PACKAGE DOCUMENT
+
+  Command-line interface
+
+Options:
+  --in-place
+  --package-pattern TEXT
+  --document-section TEXT
+  --version                Show the version and exit.
+  --help                   Show this message and exit.
+
+
 ### `generate_document`
 ```python
 generate_document(package, document, package_pattern='from \\.(\\w+) import (\\w+)', document_section='## Reference')
