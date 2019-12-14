@@ -5,12 +5,12 @@ from . import config
 
 # Module API
 
-@click.command()
+@click.command(help= '')
 @click.argument('package')
 @click.argument('document')
-@click.option('--in-place', is_flag=True)
-@click.option('--package-pattern', default=config.PACKAGE_PATTERN)
-@click.option('--document-section', default=config.DOCUMENT_SECTION)
+@click.option('--in-place', is_flag=True, show_default=True)
+@click.option('--package-pattern', default=config.PACKAGE_PATTERN, show_default=True)
+@click.option('--document-section', default=config.DOCUMENT_SECTION, show_default=True)
 @click.version_option(config.VERSION, message='%(version)s')
 def cli(package, document, **options):
     """ Command-line interface
@@ -18,12 +18,10 @@ def cli(package, document, **options):
     ```
     Usage: referencer [OPTIONS] PACKAGE DOCUMENT
 
-      Command-line interface
-
     Options:
-      --in-place
-      --package-pattern TEXT
-      --document-section TEXT
+      --in-place               [default: False]
+      --package-pattern TEXT   [default: from \.(\w+) import (\w+)]
+      --document-section TEXT  [default: ## Reference]
       --version                Show the version and exit.
       --help                   Show this message and exit.
     ```

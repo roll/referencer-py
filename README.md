@@ -36,12 +36,10 @@ Command-line interface
 ```
 Usage: referencer [OPTIONS] PACKAGE DOCUMENT
 
-  Command-line interface
-
 Options:
-  --in-place
-  --package-pattern TEXT
-  --document-section TEXT
+  --in-place               [default: False]
+  --package-pattern TEXT   [default: from \.(\w+) import (\w+)]
+  --document-section TEXT  [default: ## Reference]
   --version                Show the version and exit.
   --help                   Show this message and exit.
 ```
