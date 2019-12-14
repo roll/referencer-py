@@ -20,6 +20,7 @@ def generate_reference(package,
             is_class = object[0].isupper()
             docs = subprocess.getoutput('pydocmd simple %s.%s++' % (package, module))
             docs = re.sub(r'\n\n-', r'\n-', docs)
+            docs = re.sub(r'\\:', r':', docs)
             for line in docs.split("\n"):
                 if line.startswith('## '):
                     capture = False
