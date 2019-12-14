@@ -14,11 +14,11 @@ def generate_document(package, document,
     reference = generate_reference(package, package_pattern)
     with open(document) as file:
         for line in file:
-            if line.startswith('## '):
+            if line.startswith('%s ' % document_section.split(' ')[0]):
                 if replace:
                     content += "\n%s" % reference
                 replace = False
-            if line.startswith('## Reference'):
+            if line.startswith(document_section):
                 content += line
                 replace = True
             if replace:
