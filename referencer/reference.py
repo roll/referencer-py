@@ -34,5 +34,5 @@ def generate_reference(package,
         headings = ''
         for heading in re.findall(r'### `(.*)`', content):
             headings += "- [`%s`](#%s)\n" % (heading, heading)
-        content = "%s\n%s" % (headings, content)
+        content = "%s\n---\n\n%s" % (headings, content)
     return content

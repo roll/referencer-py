@@ -31,6 +31,8 @@ referencer package README.md --in-place
 - [`generate_document`](#generate_document)
 - [`generate_reference`](#generate_reference)
 
+---
+
 ### `cli`
 ```python
 cli(package, document, **options)
