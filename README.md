@@ -45,24 +45,6 @@ generate_reference(package, package_pattern='from \\.(\\w+) import (\\w+)')
 ```
 Generate reference
 
-## `cli`
-```python
-cli(package, document, **options)
-```
-Command-line interface
-
-## `generate_document`
-```python
-generate_document(package, document, package_pattern='from \\.(\\w+) import (\\w+)', document_section='## Reference')
-```
-Generate document
-
-## `generate_reference`
-```python
-generate_reference(package, package_pattern='from \\.(\\w+) import (\\w+)')
-```
-Generate reference
-
 ## Contributing
 
 ```python
