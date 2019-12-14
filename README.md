@@ -19,6 +19,12 @@ The package uses semantic versioning. It means that major versions  could includ
 $ pip install referencer
 ```
 
+## Documentation
+
+```bash
+referencer package README.md --in-place
+```
+
 ## Reference
 
 ## `cli`
