@@ -18,20 +18,29 @@ def generate_reference(package,
             capture = False
             module, object = match.groups()
             is_class = object[0].isupper()
-            docs = subprocess.getoutput('pydocmd simple %s.%s++' % (package, module))
+            command = 'pydocmd simple %s.%s++' % (package, module)
+            code, docs = subprocess.getstatusoutput(command)
+            if code != 0:
+                raise Exception(docs)
             docs = re.sub(r'\n\n-', r'\n-', docs)
             docs = re.sub(r'\\:', r':', docs)
-            for line in docs.split("\n"):
-                if line.startswith('## '):
+            if docs.find('## %s' % object) == -1:
+                docs = docs.replace('# %s' % object, '## %s' % object)
+            block = ''
+            for docline in docs.split("\n"):
+                if docline.startswith('## '):
                     if capture:
                         break
-                if line == '## %s' % object:
+                if docline == '## %s' % object:
                     capture = True
                 if not capture:
                     continue
                 if is_class:
-                    line = re.sub(r'^### (.*)', r'### %s.\1' % object.lower(), line)
-                    line = re.sub(r'^%s\.' % object, r'%s.' % object.lower(), line)
-                line = re.sub(r'^(###?) ([\w.]+)', r'#\1 `\2`', line)
-                content += "%s\n" % line
+                    docline = re.sub(r'^### (.*)', r'### %s.\1' % object.lower(), docline)
+                    docline = re.sub(r'^%s\.' % object, r'%s.' % object.lower(), docline)
+                docline = re.sub(r'^(###?) ([\w.]+)', r'#\1 `\2`', docline)
+                block += "%s\n" % docline
+            if not block:
+                raise Exception('No docs for: %s' % line)
+            content += block
     return content
