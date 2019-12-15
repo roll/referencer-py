@@ -23,7 +23,8 @@ def generate_reference(package,
             docs = re.sub(r'\\:', r':', docs)
             for line in docs.split("\n"):
                 if line.startswith('## '):
-                    capture = False
+                    if capture:
+                        break
                 if line == '## %s' % object:
                     capture = True
                 if not capture:
