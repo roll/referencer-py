@@ -11,7 +11,7 @@ Generate a markdown reference from your public API docstrings and add it to your
 
 - Uses `pydoc-markdown` under the hood
 
-## Installation
+## Getting Started
 
 The package uses semantic versioning. It means that major versions  could include breaking changes.
 
@@ -25,7 +25,7 @@ $ pip install referencer
 referencer package README.md --in-place
 ```
 
-## Reference
+## API Reference
 
 ### `cli`
 ```python
@@ -47,7 +47,7 @@ Options:
 
 ### `generate_document`
 ```python
-generate_document(package, document, package_pattern='from \\.(\\w+) import (\\w+)', document_section='## Reference')
+generate_document(package, document, package_pattern='from \\.(\\w+) import (\\w+)', document_section='## API Reference')
 ```
 Generate document
 
