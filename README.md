@@ -59,7 +59,7 @@ Generate reference
 
 ## Contributing
 
-```python
+```bash
 virtualenv .python -ppython3.7
 source .python/bin/activate
 make install
