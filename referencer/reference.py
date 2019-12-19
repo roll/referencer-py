@@ -43,4 +43,6 @@ def generate_reference(package,
             if not block:
                 raise Exception('No docs for: %s' % line)
             content += block
+    if not content:
+        raise Exception('No docs for: %s' % package)
     return content
